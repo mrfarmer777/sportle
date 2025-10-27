@@ -7,3 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+teams = JSON.parse(File.read('db/seed_data/teams.json'))['teams']
+teams.map { |team_data|
+  Team.find_or_create_by!(
+    name: team_data['name'],
+    stats_api_id: team_data['id']
+  )
+}
