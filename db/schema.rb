@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_10_26_222443) do
+ActiveRecord::Schema[8.1].define(version: 2025_10_29_231537) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "player_targets", force: :cascade do |t|
+    t.string "batting_hand", null: false
+    t.datetime "created_at", null: false
+    t.string "first_name", null: false
+    t.string "jersey_number", null: false
+    t.string "last_name", null: false
+    t.string "league", null: false
+    t.string "position", null: false
+    t.string "stats_api_id", null: false
+    t.string "team_name", null: false
+    t.string "throwing_hand", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "teams", force: :cascade do |t|
     t.datetime "created_at", null: false
