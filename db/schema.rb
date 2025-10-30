@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_10_29_231537) do
+ActiveRecord::Schema[8.1].define(version: 2025_10_30_001937) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "games", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.bigint "player_target_id"
+    t.string "result"
+    t.string "status", default: "started"
+    t.string "total_guesses", default: "0"
+    t.datetime "updated_at", null: false
+    t.index ["player_target_id"], name: "index_games_on_player_target_id"
+  end
 
   create_table "player_targets", force: :cascade do |t|
     t.string "batting_hand", null: false
@@ -34,4 +44,6 @@ ActiveRecord::Schema[8.1].define(version: 2025_10_29_231537) do
     t.string "stats_api_id", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "games", "player_targets"
 end

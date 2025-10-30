@@ -100,7 +100,6 @@ RSpec.describe PlayerTargetFactory, type: :model do
         existing_player_target_1 = FactoryBot.create(:player_target, stats_api_id: '642715')
         existing_player_target_2 = FactoryBot.create(:player_target, stats_api_id: '527038')
 
-
         player_target = PlayerTargetFactory.get_random_player_target
 
         expect([existing_player_target_1, existing_player_target_2]).to include(player_target)
