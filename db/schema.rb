@@ -16,8 +16,14 @@ ActiveRecord::Schema[8.1].define(version: 2025_10_30_001937) do
 
   create_table "games", force: :cascade do |t|
     t.datetime "created_at", null: false
+    t.boolean "found_batting_hand", default: false
+    t.boolean "found_jersey_number", default: false
+    t.boolean "found_league", default: false
+    t.boolean "found_player", default: false
+    t.boolean "found_position", default: false
+    t.boolean "found_team", default: false
+    t.boolean "found_throwing_hand", default: false
     t.bigint "player_target_id"
-    t.string "result"
     t.string "status", default: "started"
     t.string "total_guesses", default: "0"
     t.datetime "updated_at", null: false
