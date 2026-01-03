@@ -4,6 +4,7 @@ RSpec.describe Game, type: :model do
 
   describe 'associations' do
     it { should belong_to(:player_target).required }
+    it { should have_many(:guesses).dependent(:destroy) }
   end
 
   describe 'validations' do
