@@ -9,5 +9,4 @@ class PlayerTarget < ApplicationRecord
   validates :throwing_hand, presence: true
   validates :team_name, presence: true
   validates :league, presence: true
-
 end

@@ -8,6 +8,6 @@ FactoryBot.define do
     throwing_hand { "Right" }
     batting_hand  { "Switch" }
     league        { "NL" }
-    stats_api_id  { "642715" }
+    stats_api_id  { SecureRandom.random_number }
   end
 end

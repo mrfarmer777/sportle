@@ -95,3 +95,6 @@ end
 
 require 'webmock/rspec'
 require 'faker'
+
+WebMock.disable_net_connect!(allow_localhost: true)
+

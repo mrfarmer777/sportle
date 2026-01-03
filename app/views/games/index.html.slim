@@ -1,0 +1,5 @@
+ul
+  - @games.each do |game|
+    li
+      = "#{game.status} - Total Guesses: #{game.total_guesses}"
+= button_to('Start New Game', games_path, method: :post, class: 'new-game-button')
