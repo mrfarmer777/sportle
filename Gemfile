@@ -43,6 +43,9 @@ gem "image_processing", "~> 1.2"
 # Calls to external APIs
 gem 'faraday'
 
+# HTML templating
+gem 'slim-rails'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
@@ -56,6 +59,10 @@ group :development, :test do
   gem 'webmock'
 
   gem 'shoulda-matchers', '~> 6.0'
+
+  # System testing
+  gem 'capybara'
+  gem 'selenium-webdriver'
 
   # Audits gems for known security defects (use config/bundler-audit.yml to ignore issues)
   gem "bundler-audit", require: false
