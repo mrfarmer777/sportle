@@ -68,4 +68,17 @@ RSpec.describe 'Game Show Page', type: :system do
     expect(page).to have_content('Found throwing hand: true')
     expect(page).to have_content('Found batting hand: false')
   end
+
+  it 'updates game to completed when player is guessed correctly' do
+    player_data[:id] = player_target.stats_api_id
+    visit page_path
+
+    fill_in 'name', with: "Shohei Ohtani"
+    click_button 'Submit Guess'
+
+    expect(page).to have_content('Status: completed')
+    game.reload
+    expect(game.status).to eq('completed')
+    expect(game.found_player).to be true
+  end
 end
