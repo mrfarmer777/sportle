@@ -1,6 +1,26 @@
 h1
   = @game.id
 h2 Guess the player...
-p
-  = "Status: #{@game.status}"
-  = "Total Guesses: #{@game.total_guesses}"
+= turbo_frame_tag("guesses_frame") do
+  ul
+    li = "Status: #{@game.status}"
+    li = "Total Guesses: #{@guesses.length}"
+    li = "Found player: #{@game.found_player}"
+    li = "Found league: #{@game.found_league}"
+    li = "Found position: #{@game.found_position}"
+    li = "Found team: #{@game.found_team}"
+    li = "Found jersey number: #{@game.found_jersey_number}"
+    li = "Found throwing hand: #{@game.found_throwing_hand}"
+    li = "Found batting hand: #{@game.found_batting_hand}"
+
+  .game-guess-form
+    = form_with url: game_guesses_path(@game), method: :post, data: { turbo_frame: "guesses_frame"} do |form|
+      = form.label :player_name, "Enter Player Name:"
+      = form.text_field :name, required: true
+      = form.submit "Submit Guess"
+
+  .guesses-list
+    h3 Previous Guesses:
+    - @guesses.each do |guess|
+      .guess-item
+        = "Guess: #{guess.first_name} #{guess.last_name}, #{guess.player_target.position}, #{guess.player_target.team_name}"

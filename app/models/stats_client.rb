@@ -19,4 +19,8 @@ class StatsClient
   def get_player(stats_player_id)
     conn.get("people/#{stats_player_id}?hydrate=rosterEntries,currentTeam").body
   end
+
+  def search_players_by_name(name)
+    conn.get("people/search", { names: name, limit: 1, hydrate: 'currentTeam' }).body
+  end
 end

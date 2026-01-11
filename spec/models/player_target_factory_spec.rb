@@ -86,7 +86,6 @@ RSpec.describe PlayerTargetFactory, type: :model do
       allow_any_instance_of(StatsClient).to receive(:get_player).and_return({people: [player_data]})
     end
 
-
     it 'returns a player_target from a randomly-chosen player' do
       player_target = PlayerTargetFactory.get_random_player_target
 
@@ -104,6 +103,23 @@ RSpec.describe PlayerTargetFactory, type: :model do
 
         expect([existing_player_target_1, existing_player_target_2]).to include(player_target)
       end
+    end
+  end
+
+  describe '.get_player_target_by_name' do
+
+    before(:each) do
+      allow_any_instance_of(StatsClient).to receive(:search_players_by_name).and_return({people: [player_data]})
+      allow_any_instance_of(StatsClient).to receive(:get_player).and_return({people: [player_data]})
+    end
+
+    it 'returns a player_target if a name match is found' do
+      result = PlayerTargetFactory.get_player_target_by_name('Shohei Ohtani')
+
+      expect(result).to be_a(PlayerTarget)
+      expect(result).to be_persisted
+      expect(result.first_name).to eq('Shohei')
+      expect(result.last_name).to eq('Ohtani')
     end
   end
 

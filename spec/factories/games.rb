@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :game do
-    player_target_id { create(:player_target).id }
+    player_target { create(:player_target) }
     total_guesses { 0 }
     status { 'started' }
     found_player  { false }

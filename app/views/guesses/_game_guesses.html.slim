@@ -1,0 +1,6 @@
+= turbo_frame_tag("guesses_frame") do
+  .guesses-list
+    h3 Previous Guesses:
+    - @guesses.each do |guess|
+      .guess-item
+        = "Guess: #{guess.first_name} #{guess.last_name}, #{guess.player_target.position}, #{guess.player_target.team_name}"

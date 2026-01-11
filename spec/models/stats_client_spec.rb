@@ -21,4 +21,14 @@ describe 'StatsAPIClient', type: :model do
       expect(stub).to have_been_requested
     end
   end
+
+  describe '#search_players_by_name' do
+    it 'calls the player search API endpoint with the given name' do
+      stub = stub_request(:get, "https://statsapi.mlb.com/api/v1/people/search")
+             .with(query: hash_including({ names: 'John Doe', limit: '1' }))
+
+      StatsClient.new.search_players_by_name('John Doe')
+      expect(stub).to have_been_requested
+    end
+  end
 end
