@@ -38,5 +38,8 @@ module Sportle
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Configure ViewComponent to look for previews in spec/components/previews
+    config.view_component.previews.paths << "#{Rails.root}/spec/components/previews"
   end
 end
