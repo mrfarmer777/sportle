@@ -1,1 +1,12 @@
-div Add PlayerCard template here
+.player-card
+  = image_tag('https://www.walteromalley.com/assets/images/content/20220801-osp-koufax-1.jpg', class: 'player-card__image')
+  .player-card__info-wrapper
+    .player-card__info
+      .player-card__first-name= player_target.first_name
+      .player-card__last-name= player_target.last_name
+      .player-card__details
+        .player-card__position= player_target.position
+        .player-card__team= player_target.team_name
+        .player-card__jersey-number Jersey #: #{player_target.jersey_number}
+        .player-card__batting-hand Bats: #{player_target.batting_hand}
+        .player-card__throwing-hand Throws: #{player_target.throwing_hand}
