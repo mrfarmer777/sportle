@@ -1,5 +1,5 @@
 .player-card
-  = image_tag('https://www.walteromalley.com/assets/images/content/20220801-osp-koufax-1.jpg', class: 'player-card__image')
+  = image_tag("https://img.mlbstatic.com/mlb/images/players/head_shot/#{player_target.stats_api_id}.jpg", class: 'player-card__image')
   .player-card__info-wrapper
     .player-card__info
       .player-card__first-name= player_target.first_name

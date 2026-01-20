@@ -5,13 +5,13 @@ h2 Guess the player...
   ul
     li = "Status: #{@game.status}"
     li = "Total Guesses: #{@guesses.length}"
-    li = "Found player: #{@game.found_player}"
-    li = "Found league: #{@game.found_league}"
-    li = "Found position: #{@game.found_position}"
-    li = "Found team: #{@game.found_team}"
-    li = "Found jersey number: #{@game.found_jersey_number}"
-    li = "Found throwing hand: #{@game.found_throwing_hand}"
-    li = "Found batting hand: #{@game.found_batting_hand}"
+    li = "Found player: #{@game.found_player}" + (@game.found_player ? " (#{@game.found_player_name})" : "")
+    li = "Found league: #{@game.found_league}" + (@game.found_league ? " (#{@game.player_target.league})" : "")
+    li = "Found position: #{@game.found_position}" + (@game.found_position ? " (#{@game.player_target.position})" : "")
+    li = "Found team: #{@game.found_team}" + (@game.found_team ? " (#{@game.player_target.team_name})" : "")
+    li = "Found jersey number: #{@game.found_jersey_number}" + (@game.found_jersey_number ? " (#{@game.player_target.jersey_number})" : "")
+    li = "Found throwing hand: #{@game.found_throwing_hand}" + (@game.found_throwing_hand ? " (#{@game.player_target.throwing_hand})" : "")
+    li = "Found batting hand: #{@game.found_batting_hand}" + (@game.found_batting_hand ? " (#{@game.player_target.batting_hand})" : "")
 
   .game-guess-form
     = form_with url: game_guesses_path(@game), method: :post, data: { turbo_frame: "guesses_frame"} do |form|
@@ -21,6 +21,8 @@ h2 Guess the player...
 
   .guesses-list
     h3 Previous Guesses:
-    - @guesses.each do |guess|
-      .guess-item
-        = "Guess: #{guess.first_name} #{guess.last_name}, #{guess.player_target.position}, #{guess.player_target.team_name}"
+    .guess-cards
+      - @guesses.each do |guess|
+        = render PlayerCardComponent.new(player_target: guess.player_target)
+      / .guess-item
+      /   = "Guess: #{guess.first_name} #{guess.last_name}, #{guess.player_target.position}, #{guess.player_target.team_name}"
