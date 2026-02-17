@@ -21,11 +21,11 @@
 }
 
 .player-card__info {
-    font-family: "Libre Franklin", sans-serif;
+    font-family: var(--font-primary);
     position: absolute;
     padding: 8px;
-    background: rgba(255, 0, 0, 1);
-    color: white;
+    background: var(--highlight-red);
+    color: var(--neutral-offwhite);
     display: flex;
     flex-direction: column;
     text-transform: uppercase;
@@ -44,6 +44,5 @@
     font-size: 8px;
     display: flex;
     gap: 10px;
-    /*text-transform: uppercase;*/
     font-weight: semi-bold;
 }

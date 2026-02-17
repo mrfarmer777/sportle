@@ -1,6 +1,82 @@
+.game-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
 .guess-cards {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: left;
+}
+
+.game-area {
+    align-self: stretch;
+    padding-inline: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+}
+
+.game-guesses {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 20px;
+}
+
+.guess-line__player-name {
+    flex-grow: 1;
+}
+
+.guess-line {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px;
+}
+
+.guess-line__data {
+    padding: 2px 4px;
+    color: var(--neutral-offwhite);
+    border: 2px solid var(--neutral-offwhite);
+    width: 2em;
+    min-height: 1.2em;
+
+}
+
+.guess-line__data--matched {
+    border: 2px solid var(--highlight-gold);
+    color: var(--highlight-gold);
+}
+
+.guess-line__data--small {
+    width: 0.8em;
+}
+
+.guess-line__data--medium {
+    width: 1.7em;
+}
+
+.scoreboard {
+    width: 85%;
+    background-color: var(--base-green);
+    clip-path: ellipse(100% 100% at bottom);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+    turbo-frame {
+        display: contents;
+    }
+}
+
+.player-list {
+    flex-grow: 1;
 }
