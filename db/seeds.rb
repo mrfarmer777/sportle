@@ -12,6 +12,7 @@ teams = JSON.parse(File.read('db/seed_data/teams.json'))['teams']
 teams.map { |team_data|
   Team.find_or_create_by!(
     name: team_data['name'],
+    abbreviation: team_data['abbreviation'],
     stats_api_id: team_data['id']
   )
 }

@@ -56,6 +56,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_10_30_030120) do
   end
 
   create_table "teams", force: :cascade do |t|
+    t.string "abbreviation", null: false
     t.datetime "created_at", null: false
     t.string "name", null: false
     t.string "stats_api_id", null: false

@@ -2,123 +2,153 @@
   "teams": [
     {
       "id": 108,
-      "name": "Los Angeles Angels"
+      "name": "Los Angeles Angels",
+      "abbreviation": "LAA"
     },
     {
       "id": 109,
-      "name": "Arizona Diamondbacks"
+      "name": "Arizona Diamondbacks",
+      "abbreviation": "ARI"
     },
     {
       "id": 110,
-      "name": "Baltimore Orioles"
+      "name": "Baltimore Orioles",
+      "abbreviation": "BAL"
     },
     {
       "id": 111,
-      "name": "Boston Red Sox"
+      "name": "Boston Red Sox",
+      "abbreviation": "BOS"
     },
     {
       "id": 112,
-      "name": "Chicago Cubs"
+      "name": "Chicago Cubs",
+      "abbreviation": "CHC"
     },
     {
       "id": 113,
-      "name": "Cincinnati Reds"
+      "name": "Cincinnati Reds",
+      "abbreviation": "CIN"
     },
     {
       "id": 114,
-      "name": "Cleveland Guardians"
+      "name": "Cleveland Guardians",
+      "abbreviation": "CLE"
     },
     {
       "id": 115,
-      "name": "Colorado Rockies"
+      "name": "Colorado Rockies",
+      "abbreviation": "COL"
     },
     {
       "id": 116,
-      "name": "Detroit Tigers"
+      "name": "Detroit Tigers",
+      "abbreviation": "DET"
     },
     {
       "id": 117,
-      "name": "Houston Astros"
+      "name": "Houston Astros",
+      "abbreviation": "HOU"
     },
     {
       "id": 118,
-      "name": "Kansas City Royals"
+      "name": "Kansas City Royals",
+      "abbreviation": "KC"
     },
     {
       "id": 119,
-      "name": "Los Angeles Dodgers"
+      "name": "Los Angeles Dodgers",
+      "abbreviation": "LAD"
     },
     {
       "id": 120,
-      "name": "Washington Nationals"
+      "name": "Washington Nationals",
+      "abbreviation": "WSH"
     },
     {
       "id": 121,
-      "name": "New York Mets"
+      "name": "New York Mets",
+      "abbreviation": "NYM"
     },
     {
       "id": 133,
-      "name": "Athletics"
+      "name": "Athletics",
+      "abbreviation": "OAK"
     },
     {
       "id": 134,
-      "name": "Pittsburgh Pirates"
+      "name": "Pittsburgh Pirates",
+      "abbreviation": "PIT"
     },
     {
       "id": 135,
-      "name": "San Diego Padres"
+      "name": "San Diego Padres",
+      "abbreviation": "SD"
     },
     {
       "id": 136,
-      "name": "Seattle Mariners"
+      "name": "Seattle Mariners",
+      "abbreviation": "SEA"
     },
     {
       "id": 137,
-      "name": "San Francisco Giants"
+      "name": "San Francisco Giants",
+      "abbreviation": "SF"
     },
     {
       "id": 138,
-      "name": "St. Louis Cardinals"
+      "name": "St. Louis Cardinals",
+      "abbreviation": "STL"
     },
     {
       "id": 139,
-      "name": "Tampa Bay Rays"
+      "name": "Tampa Bay Rays",
+      "abbreviation": "TB"
     },
     {
       "id": 140,
-      "name": "Texas Rangers"
+      "name": "Texas Rangers",
+      "abbreviation": "TEX"
     },
     {
       "id": 141,
-      "name": "Toronto Blue Jays"
+      "name": "Toronto Blue Jays",
+      "abbreviation": "TOR"
     },
     {
       "id": 142,
-      "name": "Minnesota Twins"
+      "name": "Minnesota Twins",
+      "abbreviation": "MIN"
     },
     {
       "id": 143,
-      "name": "Philadelphia Phillies"
+      "name": "Philadelphia Phillies",
+      "abbreviation": "PHI"
     },
     {
       "id": 144,
-      "name": "Atlanta Braves"
+      "name": "Atlanta Braves",
+      "abbreviation": "ATL"
     },
     {
       "id": 145,
-      "name": "Chicago White Sox"
+      "name": "Chicago White Sox",
+      "abbreviation": "CWS"
     },
     {
       "id": 146,
-      "name": "Miami Marlins"
+      "name": "Miami Marlins",
+      "abbreviation": "MIA"
     },
     {
       "id": 147,
-      "name": "New York Yankees"
+      "name": "New York Yankees",
+      "abbreviation": "NYY"
     },
     {
       "id": 158,
-      "name": "Milwaukee Brewers"
+      "name": "Milwaukee Brewers",
+      "abbreviation": "MIL"
     }
   ]
 }
