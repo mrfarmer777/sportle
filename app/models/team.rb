@@ -1,3 +1,4 @@
 class Team < ApplicationRecord
   validates :name, presence: true
+  validates :abbreviation, presence: true
 end
