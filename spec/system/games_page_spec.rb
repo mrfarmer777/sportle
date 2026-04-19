@@ -32,7 +32,7 @@ RSpec.describe 'Games Page', type: :system do
 
     click_button 'Start New Game'
 
-    expect(page).to have_content('Guess the player...')
+    expect(page).to have_content('GUESS THE PLAYER...')
     expect(Game.count).to eq(4)
   end
 end

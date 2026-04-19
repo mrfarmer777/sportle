@@ -6,8 +6,7 @@ RSpec.describe PlayerTargetFactory, type: :model do
   let(:player_data) do
     {
       "id": 660271,
-      "firstName": "Shohei",
-      "lastName": "Ohtani",
+      "fullName": "Shohei Ohtani",
       "primaryNumber": "17",
       "currentTeam": {
         "id": 119,

@@ -27,8 +27,8 @@ class PlayerTargetFactory
 
   def self.create_from_stats_api_data(data)
     player_target = PlayerTarget.find_or_initialize_by(stats_api_id: data[:id])
-    player_target.first_name = data[:firstName]
-    player_target.last_name = data[:lastName]
+    player_target.first_name = data[:fullName].split(' ')[0]
+    player_target.last_name = data[:fullName].split(' ')[1..-1].join(' ')
     player_target.jersey_number = data[:primaryNumber]
     player_target.position = data[:primaryPosition][:abbreviation]
     player_target.team_name = data[:currentTeam][:name]
@@ -39,5 +39,4 @@ class PlayerTargetFactory
     player_target.save
     player_target
   end
-
 end

@@ -10,6 +10,7 @@ RSpec.describe 'Game Show Page', type: :system do
       "id": 660271,
       "firstName": "Shohei",
       "lastName": "Ohtani",
+      "fullName": "Shohei Ohtani",
       "primaryNumber": "17",
       "currentTeam": {
         "id": 119,
@@ -38,35 +39,41 @@ RSpec.describe 'Game Show Page', type: :system do
   end
 
 
-  it 'displays the game info' do
+  it 'displays the game inputs' do
     visit page_path
 
-    expect(page).to have_content(game.status)
-    expect(page).to have_content(game.total_guesses)
-    expect(page).to have_content("Found player: false")
+    expect(page).to have_content('ENTER PLAYER NAME:')
+    expect(page).to have_button('Guess')
   end
 
   it 'allows the player to make a guess' do
     visit page_path
 
     fill_in 'name', with: "Shohei Ohtani"
-    click_button 'Submit Guess'
+    click_button 'Guess'
 
     game.reload
     expect(game.guesses.count).to eq(1)
-    expect(page).to have_content('Shohei Ohtani')
+    expect(page).to have_content('Shohei Ohtani'.upcase)
   end
 
   it 'updates game status after a guess is made' do
     visit page_path
 
     fill_in 'name', with: "Shohei Ohtani"
-    click_button 'Submit Guess'
+    click_button 'Guess'
 
-    expect(page).to have_content('Found team: true')
-    expect(page).to have_content('Found position: true')
-    expect(page).to have_content('Found throwing hand: true')
-    expect(page).to have_content('Found batting hand: false')
+    page.scroll_to('Shohei Ohtani'.upcase)
+
+    expect(find_all('.guess-line__data--matched').length).to eq(4), "Expected 4 data fields to be marked as matched, but found #{find_all('.guess-line__data--matched').length}"
+    game.reload
+    expect(game.guesses.count).to eq(1)
+    expect(game.found_team).to be true
+    expect(game.found_league).to be true
+    expect(game.found_position).to be true
+    expect(game.found_throwing_hand).to be true
+    expect(game.found_batting_hand).to be false
+
   end
 
   it 'updates game to completed when player is guessed correctly' do
@@ -74,9 +81,9 @@ RSpec.describe 'Game Show Page', type: :system do
     visit page_path
 
     fill_in 'name', with: "Shohei Ohtani"
-    click_button 'Submit Guess'
+    click_button 'Guess'
 
-    expect(page).to have_content('Status: completed')
+    expect(page).to have_selector('.guess-line__data--matched')
     game.reload
     expect(game.status).to eq('completed')
     expect(game.found_player).to be true
