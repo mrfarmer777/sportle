@@ -2,26 +2,16 @@
   .scoreboard
     h1
       = "Game #{@game.id}"
-    h2 Guess the player...
+    h3 Guess the player...
     = turbo_frame_tag("guesses_frame") do
       .game-area
-        .player-target-card
-          = render PlayerCardComponent.new(player_target: @game.player_target)
+        .player-card-container
+          .player-target-card
+            = render PlayerCardComponent.new(player_target: @game.player_target)
         .player-list
-          .game-guess-form
-            = form_with url: game_guesses_path(@game), method: :post, data: { turbo_frame: "guesses_frame" } do |form|
+          = form_with url: game_guesses_path(@game), method: :post, data: { turbo_frame: "guesses_frame" } do |form|
+            .game-guess-form
               = form.label :player_name, "Enter Player Name:"
-              = form.text_field :name, required: true
-              = form.submit "Submit Guess"
-          .game-guesses
+              = form.text_field :name, required: true, class: 'game-guess-form__input'
+              = form.submit "Guess"
             = render GuessListComponent.new(guesses: @guesses, player_target: @game.player_target)
-      / ul
-      /   li = "Status: #{@game.status}"
-      /   li = "Total Guesses: #{@guesses.length}"
-      /   li = "Found player: #{@game.found_player}" + (@game.found_player ? " (#{@game.player_target.first_name} #{@game.player_target.last_name})" : "")
-      /   li = "Found league: #{@game.found_league}" + (@game.found_league ? " (#{@game.player_target.league})" : "")
-      /   li = "Found position: #{@game.found_position}" + (@game.found_position ? " (#{@game.player_target.position})" : "")
-      /   li = "Found team: #{@game.found_team}" + (@game.found_team ? " (#{@game.player_target.team_name})" : "")
-      /   li = "Found jersey number: #{@game.found_jersey_number}" + (@game.found_jersey_number ? " (#{@game.player_target.jersey_number})" : "")
-      /   li = "Found throwing hand: #{@game.found_throwing_hand}" + (@game.found_throwing_hand ? " (#{@game.player_target.throwing_hand})" : "")
-      /   li = "Found batting hand: #{@game.found_batting_hand}" + (@game.found_batting_hand ? " (#{@game.player_target.batting_hand})" : "")

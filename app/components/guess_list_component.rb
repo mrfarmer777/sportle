@@ -20,7 +20,9 @@ class GuessListComponent < ViewComponent::Base
   end
 
   def call
-    render_header + safe_join(render_guesses)
+    tag.div(class: 'game-guesses') do
+      render_header + safe_join(render_guesses)
+    end
   end
 
   private
@@ -33,7 +35,7 @@ class GuessListComponent < ViewComponent::Base
       concat render_guess_line_data('Tm.')
       concat render_guess_line_data('Pos.', 'guess-line__data--medium')
       concat render_guess_line_data('BH', 'guess-line__data--medium')
-      concat render_guess_line_data('TH.', 'guess-line__data--medium')
+      concat render_guess_line_data('TH', 'guess-line__data--medium')
     end
   end
 

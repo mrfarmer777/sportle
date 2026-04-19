@@ -1,0 +1,48 @@
+.game-guesses {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 20px;
+}
+
+.guess-line__player-name {
+    flex-grow: 1;
+}
+
+.game-guesses__header .guess-line__data {
+    border: 2px solid var(--neutral-offwhite);
+    background-color: var(--neutral-offwhite);
+    color: var(--base-green);
+    font-weight: bold;
+}
+
+.guess-line {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px;
+}
+
+.guess-line__data {
+    padding: 2px 4px;
+    color: var(--neutral-offwhite);
+    border: 2px solid var(--neutral-offwhite);
+    width: 2em;
+    min-height: 1.2em;
+
+}
+
+.guess-line__data--matched {
+    border: 2px solid var(--highlight-gold);
+    color: var(--highlight-gold);
+}
+
+.guess-line__data--small {
+    width: 0.8em;
+}
+
+.guess-line__data--medium {
+    width: 2.5em;
+}
+
